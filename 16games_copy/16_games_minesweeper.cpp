@@ -9,13 +9,12 @@ int w = 32;
 int grid[12][12];
 int sgrid[12][12]; // for showing
 bool gameOver = false;
+bool clear = false;
 void dfs(int x,int y)
 {
 	if (sgrid[x][y] != 10 || grid[x][y] == 9)
 		return;
 	sgrid[x][y] = grid[x][y];
-
-	
 
 	for (int i = 0; i < 8; i++)
 	{
@@ -57,7 +56,7 @@ void mineSweeper()
 		for (int j = 1; j <= 10; j++)
 		{
 			sgrid[i][j] = 10;
-			if (rand() % 5 == 0)
+			if (rand() % 10 == 0)
 			{
 				countMine++;
 				grid[i][j] = 9;
@@ -98,8 +97,9 @@ void mineSweeper()
 			{
 				if (e.key.code == Mouse::Left)
 				{
-					if (gameOver == true)
+					if (gameOver == true || clear == true)
 					{
+						clear = false;
 						gameOver = false;
 						app.close();
 						mineSweeper();
@@ -117,7 +117,17 @@ void mineSweeper()
 						}
 					}
 				}
-				else if (e.key.code == Mouse::Right) sgrid[x][y] = 11;
+				else if (e.key.code == Mouse::Right)
+				{
+					if (sgrid[x][y] == 10)
+					{
+						sgrid[x][y] = 11;
+					}
+					else if (sgrid[x][y] == 11)
+					{
+						sgrid[x][y] = 10;
+					}
+				}
 			}
 		}
 		app.clear(Color::White);
@@ -141,7 +151,8 @@ void mineSweeper()
 		}
 		if (countMine == closeCount)
 		{
-			std::cout << "CLEAR" << '\n';
+			std::cout << "CLEAR" << '\n'; 
+			clear = true;
 		}
 		closeCount = 0;
 		app.display();
