@@ -24,5 +24,8 @@
     <ClCompile Include="16_games_minesweeper.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="gobang.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
