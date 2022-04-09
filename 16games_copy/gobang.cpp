@@ -11,10 +11,10 @@ int main()
 
 	Texture t1, t2;
 	Texture tb1, tb2;
-	t1.loadFromFile("C:/16_Games/17 Etc/images/black.png");
-	t2.loadFromFile("C:/16_Games/17 Etc/images/white.png");
-	tb1.loadFromFile("C:/16_Games/17 Etc/images/tableout.png");
-	tb2.loadFromFile("C:/16_Games/17 Etc/images/tablein.png");
+	t1.loadFromFile("C:/SFMLResource/01 goBang/images/black.png");
+	t2.loadFromFile("C:/SFMLResource/01 goBang/images/white.png");
+	tb1.loadFromFile("C:/SFMLResource/01 goBang/images/tableout.png");
+	tb2.loadFromFile("C:/SFMLResource/01 goBang/images/tablein.png");
 	Sprite s1(t1);
 	Sprite s2(t2);
 	Sprite sb1(tb1);
